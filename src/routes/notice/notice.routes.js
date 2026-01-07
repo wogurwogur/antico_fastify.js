@@ -1,7 +1,16 @@
-import { getNoticeAll } from '../../services/notice.service.js';
+import * as Notice from '../../services/notice.service.js';
 
-export default async function (fastify) {
+export async function getNoticeList(fastify) {
   fastify.get('/notice/list', async () => {
-    return getNoticeAll();
+    return Notice.getNoticeAll();
+  });
+}
+
+export async function noticeInsert(fastify) {
+  fastify.post('/notice/insert', async (req) => {
+
+    const {title, content} = req.body;
+
+    return Notice.noticeInsert(title, content);
   });
 }

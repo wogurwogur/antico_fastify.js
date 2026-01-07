@@ -1,5 +1,5 @@
-import noticeRoutes from './notice/notice.routes.js';
+import * as noticeRoutes from './notice/notice.routes.js';
 
-export default async function (fastify) {
+export async function noticeRoutes(fastify) {
   fastify.register(noticeRoutes);
 }

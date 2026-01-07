@@ -5,7 +5,9 @@ export async function getNoticeAll() {
   return rows;
 }
 
-export async function noticeInsert(noticeVO){
-    const [noticeResult] = await query("INSERT INTO(TITLE, CONTENT, VIEW_COUNT, IS_PINNED, IS_DELETED, CREATED_AT, UPDATED_AT)"
-        + " VALUES(?, ?, 0, )")
+export async function noticeInsert(title, content){
+    const [noticeResult] = await query("INSERT INTO(TITLE, CONTENT, IS_DELETED, CREATED_AT, UPDATED_AT)"
+        + " VALUES(?, ? )",
+        [title, content]);
+        
 }
