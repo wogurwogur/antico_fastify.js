@@ -1,6 +1,5 @@
-import pool from '../db/mysql.js';
+import * as noticeRepo from '../repositories/notice.repository.js';
 
-export const getNoticeAll = async () => {
-  const [rows] = await pool.query('SELECT 1 AS ok');
-  return rows;
-};
+export async function getNoticeAll() {
+  return await noticeRepo.getNoticeAll();
+}
